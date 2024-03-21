@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg bg-black  ">
+    <div class="container-fluid py-1">
+        <a href="{{path('program_index')}}" class="navbar-brand text-white">Wild-Series</a>
+        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <!--donc ici on a fait un span avec la classe navbar-toggler-icon pour afficher licon de bouton-->
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-lg-0 mb-1">
+                <li class="nav-item">
+                    <a href="#" role="button" data-bs-toggle="dropdown" data-bs-target="#firstdrop" aria-expanded="false" class="nav-link dropdown-toggle bg-white m-1 rounded-2 px-3 py-1 ">Categories</a>
+                    <ul class="dropdown-menu" id="firstdrop">
+                        <li>
+                            <a href="" class="dropdown-item">Action</a>
+                        </li>
+                        <li>
+                            <a href="" class="dropdown-item">Another action</a>
+                        </li>
+                        <li>
+                            <a href="" class="dropdown-item">Something else here </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle bg-white rounded-2  my-1 px-3 py-1 mx-3" role="button" data-bs-target="#seconddrop" data-bs-toggle="dropdown" aria-expanded="false">Acteurs</a>
+                    <ul class="dropdown-menu" id="seconddrop">
+                        <li><a href="#" class="dropdown-item">Acteur</a></li>
+                        <li><a href="#" class="dropdown-item">Acteur</a></li>
+                        <li><a href="#" class="dropdown-item">Acteur</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <div class="align-self-end d-flex">
+
+                <a href="#" aria-current="page" class="nav-link text-white mx-3">Mes favoris</a>
+                <a href="#" aria-current="page" class="nav-link text-danger mx-3 font-weight-bold ">John gotty</a>
+                <a href="#" class="nav-link text-white font-weight-bolder">second </a>
+            </div>
+
+        </div>
+    </div>
+</nav>

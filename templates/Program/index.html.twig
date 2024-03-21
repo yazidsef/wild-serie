@@ -1,0 +1,75 @@
+{% extends "./base.html.twig" %}
+
+{% block body %}
+{% include "./components/navbar.html.twig" %}
+
+<div class="container m-auto">
+    <h1 class="m-3 text-start font-weight-bold">Series filtrées par categories</h1>
+    <div class="row m-auto">
+        <div class="col m-auto">
+            <div class="card my-3" style="width: 14rem;">
+                <img src="{{ asset('build/images/image.png') }}" class="card-img-top" alt="...">
+                <div class="card-body bg-dark text-white">
+                    <a href="{{path('program_details',{id:4})}}" class="btn btn-light mb-2">afficher la page 5</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text text-danger">tom cruise</p>
+                </div>
+            </div>
+        </div>
+        <div class="col m-auto">
+            <div class="card my-3" style="width: 14rem;">
+                <img src="{{ asset('build/images/image1.png') }}" class="card-img-top" alt="...">
+                <div class="card-body bg-dark text-white">
+                    <a href="#" class="btn btn-light mb-2"> Scary movie</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text text-danger">tom cruise</p>
+                </div>
+            </div>
+        </div>
+        <div class="col m-auto">
+            <div class="card my-3" style="width: 14rem;">
+                <img src="{{ asset('build/images/image2.png') }}" class="card-img-top" alt="...">
+                <div class="card-body bg-dark text-white">
+                    <a href="#" class="btn btn-light mb-2"> Scary movie</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text text-danger">tom cruise</p>
+                </div>
+            </div>
+        </div>
+        <div class="col m-auto">
+            <div class="card my-3" style="width: 14rem;">
+                <img src="{{ asset('build/images/oxygen_school_logo.png') }}" class="card-img-top" alt="...">
+                <div class="card-body bg-dark text-white">
+                    <a href="#" class="btn btn-light mb-2"> Scary movie</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text text-danger">tom cruise</p>
+                </div>
+            </div>
+        </div>
+        <div class="col m-auto">
+            <div class="card my-3" style="width: 14rem;">
+                <img src="{{ asset('build/images/oxygen_school_logo.png') }}" class="card-img-top" alt="...">
+                <div class="card-body bg-dark text-white">
+                    <a href="#" class="btn btn-light mb-2"> Scary movie</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text text-danger">tom cruise</p>
+                </div>
+            </div>
+        </div>
+        <div class="col m-auto rounded">
+            <div class="card my-3" style="width: 14rem;">
+                <img src="{{ asset('build/images/oxygen_school_logo.png') }}" class="card-img-top" alt="...">
+                <div class="card-body bg-dark text-white">
+                    <a href="#" class="btn btn-light mb-2"> Scary movie</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text text-danger">tom cruise</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+{% endblock  %} 
