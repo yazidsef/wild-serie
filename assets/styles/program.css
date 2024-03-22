@@ -1,0 +1,5 @@
+.program-paragraph {
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

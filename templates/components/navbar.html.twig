@@ -8,20 +8,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-lg-0 mb-1">
                 <li class="nav-item">
-                    <a href="#" role="button" data-bs-toggle="dropdown" data-bs-target="#firstdrop" aria-expanded="false" class="nav-link dropdown-toggle bg-white m-1 rounded-2 px-3 py-1 ">Categories</a>
+                    <a href="" role="button" data-bs-toggle="dropdown" data-bs-target="#firstdrop" aria-expanded="false" class="nav-link dropdown-toggle bg-white m-1 rounded-2 px-3 py-1 ">Categories</a>
                     <ul class="dropdown-menu" id="firstdrop">
+                       
                         <li>
-                            <a href="" class="dropdown-item">Action</a>
+                            <a href="{{path('category_show',{categoryName:'action'})}}" class="dropdown-item">Action</a>
                         </li>
                         <li>
-                            <a href="" class="dropdown-item">Another action</a>
+                            <a href="{{path('category_show',{categoryName:'animation'})}}" class="dropdown-item">Animation</a>
                         </li>
                         <li>
-                            <a href="" class="dropdown-item">Something else here </a>
+                            <a href="{{path('category_show',{categoryName:'aventure'})}}" class="dropdown-item">aventure</a>
                         </li>
                         <li>
-                            <hr class="dropdown-divider">
+                            <a href="{{path('category_show',{categoryName:'action'})}}" class="dropdown-item">fantastique</a>
                         </li>
+                        <li>
+                            <a href="{{path('category_show',{categoryName:'action'})}}" class="dropdown-item">horreur</a>
+                        </li>
+                        
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

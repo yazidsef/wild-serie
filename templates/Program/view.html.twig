@@ -1,10 +1,24 @@
-{% include "./base.html.twig" %}
+{% extends './base.html.twig' %}
+
+{% block title %}Série #{{ program.id }}{% endblock %}
 
 {% block body %}
 {% include "./components/navbar.html.twig" %}
-<h1 class="m-3 text-start font-weight-bold">titre de movie id : {{id}} </h1>
+   <div class="container">
+        <div class="card text-center">
+            <div class="card-header">
+                {{program.title}}
+            </div>
+            <div class="card-body">
+                <img src="{{ asset('build/images/image.png') }}" alt="" class="card-img-top w-50 ">
+                <p class="card-text"> {{program.synopsis}} </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div class="card-footer text-info  ">
+                2days ago
+            </div>
+        </div>
+    </div>
 
-
-
-
-{% endblock  %}
+{% endblock %}
+   
