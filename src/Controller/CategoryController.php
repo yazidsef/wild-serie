@@ -23,11 +23,13 @@ class CategoryController extends AbstractController
     }
     #[Route('/{categoryName}',name:'show')]
     public function show(string $categoryName , CategoryRepository $categoryRepository ,ProgramRepository $programRepository){
+        //ici j'ai recuperer la categorie comme son nom indique dans la bdd 
         $categories = $categoryRepository->findOneBy(['name'=>$categoryName]);
         if(!$categories)
         {
             throw $this->createNotFoundException('this category not found');
         }
+        //ici j'ai recuperer les programmes qui sont lier a cette categorie 
         $programs=$programRepository->findBy(['category'=>$categories],['id'=>'DESC']);
         return $this->render('category/show.html.twig',['category'=>$categories,'programs'=>$programs]);
     }

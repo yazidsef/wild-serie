@@ -38,4 +38,8 @@ class ProgramController extends AbstractController
         ]);
         
     }
+    #[Route('{id}/seasons/{seasonId}',name:'program_season_show',methods:['GET'])]
+    public function showSeason(int $programId , int $seasonId){
+
+    }
 }

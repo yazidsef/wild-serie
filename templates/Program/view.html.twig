@@ -1,24 +1,23 @@
-{% extends './base.html.twig' %}
+{% extends './base.html.twig' %} {% block title %}Série #{{ program.id }}{% endblock %} {% block body %} {% include "./components/navbar.html.twig" %}
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header">
+            {{program.title}}
+        </div>
+        <div class="card-body">
+            <img src="{{ asset('build/images/image.png') }}" alt="" class="card-img-top w-50 ">
+            <p class="card-text"> {{program.synopsis}} </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="btn-group" role="group">
+                {% for season in program.seasons %}
+                <a href="program_season_show" class="btn btn-info">Season {{ season.number }}</a> {% endfor %}
+            </div>
 
-{% block title %}Série #{{ program.id }}{% endblock %}
-
-{% block body %}
-{% include "./components/navbar.html.twig" %}
-   <div class="container">
-        <div class="card text-center">
-            <div class="card-header">
-                {{program.title}}
-            </div>
-            <div class="card-body">
-                <img src="{{ asset('build/images/image.png') }}" alt="" class="card-img-top w-50 ">
-                <p class="card-text"> {{program.synopsis}} </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            <div class="card-footer text-info  ">
-                2days ago
-            </div>
+        </div>
+        <div class="card-footer text-info  ">
+            2days ago
         </div>
     </div>
+</div>
 
 {% endblock %}
-   

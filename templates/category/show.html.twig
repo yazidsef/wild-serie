@@ -4,7 +4,7 @@
 {% include "./components/navbar.html.twig" %}
 
 <div class="container m-auto">
-    <h1 class="m-3 text-start font-weight-bold">Series filtrées par categories  </h1>
+    <h1 class="m-3 text-start font-weight-bold">Series filtrées par categories {{dump(category)}} </h1>
     <div class="row m-auto">
         
         {%for program in programs%}
