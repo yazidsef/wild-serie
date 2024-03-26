@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\EpisodeRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: EpisodeRepository::class)]
 class Episode
@@ -14,9 +15,12 @@ class Episode
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Length(max:255,maxMessage:'il faut pas depasser {{limit}}')]
     #[ORM\Column(length: 255)]
     private ?string $title = null;
-
+    #[Assert\NotBlank]
+    #[Assert\Type(type:'integer',message:'the value you have enter is not a correct number<')]
     #[ORM\Column]
     private ?int $number = null;
 

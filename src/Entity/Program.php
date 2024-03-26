@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: ProgramRepository::class)]
 class Program
@@ -16,12 +18,26 @@ class Program
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[Assert\NotBlank (message:'merci de renseigner un titre')]
+    #[Assert\Length(
+        max:255,
+        maxMessage:'la categorie saisie {{value}} est trop longue elle devrait pas passer {{limit}} '
+)]
+    #[ORM\Column(type:'string',length: 255)]
     private ?string $title = null;
 
+    #[Assert\NotBlank (message:'merci de renseigner un titre')]
+    #[Assert\Length(
+        max:255,
+        maxMessage:'la categorie saisie {{value}} est trop longue elle devrait pas passer {{limit}} '
+    )]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $synopsis = null;
-
+    
+    #[Assert\NotBlank(message:'merci de saisir de poster')]
+    #[Assert\Type(type:'string',message:'Le valeur saisie nest pas correct')]
+    #[Assert\Length(max:255
+    ,maxMessage:'il faut pas depasser {{limit}} lettres')]
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $poster = null;
 
@@ -29,12 +45,16 @@ class Program
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
-    #[ORM\OneToMany(targetEntity: Season::class, mappedBy: 'Program')]
+    #[ORM\OneToMany(targetEntity: Season::class, mappedBy: 'Program',cascade:["remove"])]
     private Collection $seasons;
+
+    #[ORM\ManyToMany(targetEntity: Actor::class, mappedBy: 'programs')]
+    private Collection $actors;
 
     public function __construct()
     {
         $this->seasons = new ArrayCollection();
+        $this->actors = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -115,6 +135,33 @@ class Program
             if ($season->getProgram() === $this) {
                 $season->setProgram(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Actor>
+     */
+    public function getActors(): Collection
+    {
+        return $this->actors;
+    }
+
+    public function addActor(Actor $actor): static
+    {
+        if (!$this->actors->contains($actor)) {
+            $this->actors->add($actor);
+            $actor->addProgram($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActor(Actor $actor): static
+    {
+        if ($this->actors->removeElement($actor)) {
+            $actor->removeProgram($this);
         }
 
         return $this;

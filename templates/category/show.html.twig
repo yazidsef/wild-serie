@@ -1,25 +1,13 @@
 {% extends "./base.html.twig" %}
 
 {% block body %}
-{% include "./components/navbar.html.twig" %}
 
-<div class="container m-auto">
-    <h1 class="m-3 text-start font-weight-bold">Series filtrées par categories {{dump(category)}} </h1>
-    <div class="row m-auto">
-        
-        {%for program in programs%}
-        <div class="col m-auto">
-            
-            <div class="card my-3" style="width: 14rem;">
-                <img src="{{ asset('build/images/image.png') }}" class="card-img-top" alt="...">
-                <div class="card-body bg-dark text-white">
-                    <a href="{{path('program_details',{id:program.id})}}" class="btn btn-light mb-2"> {{program.title}} </a>
-                    <p class="card-text program-paragraph"> {{program.synopsis}} </p>
-                    <p class="card-text text-danger">tom cruise {{loop.index}} </p>
-                </div>
-            </div>
-        </div>
-{%endfor%}
+    <div class="container">
+    
+    <h1> {{category.name}} </h1>
+    <a href="{{path('category_edit',{id:category.id})}}" class="btn btn-primary">edit</a>
+    <a href="{{path('category_delete',{id:category.id})}}" class="btn btn-danger">supprimer</a>
     </div>
-</div>
+    {% include 'category/delete.html.twig' %}
+
 {% endblock  %} 

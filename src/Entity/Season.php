@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SeasonRepository::class)]
 class Season
@@ -16,19 +17,23 @@ class Season
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Type(type:'integer',message:'the value {{value}} in not valid')]
     #[ORM\Column]
     private ?int $number = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column]
     private ?int $year = null;
-
+    
+    #[Assert\NotBlank]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     #[ORM\ManyToOne(inversedBy: 'seasons')]
     private ?Program $Program = null;
 
-    #[ORM\OneToMany(targetEntity: Episode::class, mappedBy: 'season')]
+    #[ORM\OneToMany(targetEntity: Episode::class, mappedBy: 'season',cascade:["remove"])]
     private Collection $episodes;
 
     public function __construct()

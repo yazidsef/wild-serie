@@ -1,0 +1,36 @@
+{% extends './base.html.twig' %}
+{% block body %}
+    <div class="container">
+    <form action="#" method="post" novalidate="novalidate">
+    <fieldset>
+    <legend>Title</legend>
+    <input name="{{field_name(form.title)}}">
+    </fieldset>
+    <div class="alert-error">{{form_errors(form.title)}}</div>
+    <fieldset>
+    <legend>synopsis</legend>
+    <input name="{{field_name(form.synopsis)}}">
+    </fieldset>
+    <div class="alert-error">{{form_errors(form.synopsis)}}</div>
+    <fieldset>
+    <legend>Poster</legend>
+    <input name="{{field_name(form.poster)}}">
+    </fieldset>
+    <div class="alert-error">{{form_errors(form.poster)}}</div>
+    
+    <fieldset>
+    <legend>Categories</legend>
+    <select name="{{field_name(form.category)}}" id="">
+    {% for choice in form.category.vars.choices %}
+            <option value="{{ choice.value }}">{{ choice.label }}</option>
+        {% endfor %}
+    </select>
+    </fieldset>
+    <div class="alert-error">{{form_errors(form.category)}}</div>
+    <input type="submit" value="S'inscrire">
+
+    </form>
+    </div>
+    
+
+{% endblock %}
